@@ -14,6 +14,13 @@ const cart =new mongoose.Schema({
     },
     img:{
         type:String
+    },
+    category:{
+        type:String
+    },
+    cart_date:{
+        type:Date,
+        default:new Date()
     }
 })
 
