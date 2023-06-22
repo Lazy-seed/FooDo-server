@@ -50,7 +50,7 @@ export const login = async (req, res) => {
         const token = jwt.sign({ _id: result._id }, 'HellThisIsMyPrivateKey');
         const tokenAdd = await userSchema.findByIdAndUpdate({ _id: result._id }, { $push: { tokens: { token: token } } })
         const updated_user = await tokenAdd.save();
-        res.cookie("jwtoken", token, { expiresIn: '1h', httpOnly: true })
+        res.cookie("jwtoken", token, {expires: new Date(Date.now() + 50000000),httpOnly: true,})
 
         if (result.password === password) {
             res.status(200).json({
@@ -81,7 +81,7 @@ export const login = async (req, res) => {
 // user info
 
 export const userInfo = async (req, res) => {
-    console.log(req.rootuser);
+    // console.log(req.rootuser);
 
     const userInfo = req.rootuser
     res.status(200).json({

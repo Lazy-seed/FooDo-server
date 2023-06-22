@@ -8,6 +8,9 @@ export const Auth = async (req, res, next) => {
         console.log("auth run");
 
         const token = req.cookies.jwtoken;
+
+        // console.log(token);
+        
         const verfiyToken = jwt.verify(token, 'HellThisIsMyPrivateKey');
         const rootuser = await userSchema.findOne({ _id: verfiyToken._id });
 

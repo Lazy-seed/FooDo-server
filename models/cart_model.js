@@ -9,8 +9,11 @@ const cart =new mongoose.Schema({
     name:{
         type:String
     },
-    price:{
+    desc:{
         type:String
+    },
+    price:{
+        type:Number
     },
     img:{
         type:String

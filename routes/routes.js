@@ -27,10 +27,10 @@ route.delete('/deleteCart/:id',Auth,deleteCart)
 // user
 route.post('/register',register);
 route.post('/login',login);
-route.post('/userInfo',Auth,userInfo);
+route.get('/userInfo',Auth,userInfo);
 
 // logout
-route.post('/logout',Auth,logout)
+route.get('/logout',Auth,logout)
 
 export default route;
 

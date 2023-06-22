@@ -25,9 +25,9 @@ export const allCart = async (req, res) => {
 
 // add cart
 export const addCart = async (req, res) => {
-    const { name, price, img } = req.body;
+    const { name, price, img,desc } = req.body;
 
-    const result = await cartschema.create({ name, price, img,userID:req.userID });
+    const result = await cartschema.create({ name,desc, price, img,userID:req.userID });
 
     if (result) {
         res.status(200).json({

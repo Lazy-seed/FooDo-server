@@ -8,11 +8,12 @@ import cookieParser from 'cookie-parser';
 
 const app = express();
 
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+app.use(express.json())
 app.use(cookieParser())
 const PORT = 8000;
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json({ extended: true }))
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+// app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json({ extended: true }))
 
 DB_connection();
 
