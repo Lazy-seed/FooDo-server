@@ -1,7 +1,7 @@
 import express from 'express';
 import { addFoods, allFoods, getFoods } from '../controller/food_controller.js';
 import { addCart, allCart, deleteCart } from '../controller/cart_controller.js';
-import { login, logout, register, userInfo } from '../controller/user_controller.js';
+import { login, logout, register, userInfo, userUpdate } from '../controller/user_controller.js';
 import { Auth } from '../middleware/auth.js';
 
 
@@ -28,8 +28,8 @@ route.delete('/deleteCart/:id',Auth,deleteCart)
 route.post('/register',register);
 route.post('/login',login);
 route.get('/userInfo',Auth,userInfo);
+route.put('/userUpdate',Auth,userUpdate);
 
-// logout
 route.get('/logout',Auth,logout)
 
 export default route;
